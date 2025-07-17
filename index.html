@@ -5,309 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mybestid - Undangan Digital Terbaik</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <script>
-        // ===== KONFIGURASI WEBSITE - GANTI DISINI SAJA! =====
-        const CONFIG = {
-            // INFORMASI BISNIS
-            BISNIS: {
-                nama: "Mybestid",
-                tagline: "Undangan Digital Terbaik",
-                heroTitle: "Undangan Digital<br>Untuk Momen Spesial",
-                heroSubtitle: "✨ Solusi Undangan Digital Terbaik",
-                heroDescription: "Buat undangan digital yang menawan untuk pernikahan, ulang tahun, dan khitanan dengan desain modern, harga terjangkau, dan fitur lengkap. Hemat waktu, hemat biaya, ramah lingkungan!",
-                deskripsiFooter: "Solusi terbaik untuk undangan digital yang elegan, modern, dan terjangkau. Wujudkan momen spesial Anda dengan undangan yang berkesan."
-            },
-
-            // KONTAK INFORMASI
-            KONTAK: {
-                whatsapp: "085710758662",
-                email: "info@mybestid.com",
-                alamat: "Jakarta, Indonesia",
-                jamOperasional: "Senin - Minggu: 08:00 - 22:00"
-            },
-
-            // HARGA PAKET
-            HARGA: {
-                basic: {
-                    nama: "BASIC",
-                    subtitle: "Standar",
-                    harga: "Rp 75K",
-                    hargaCoret: "Rp 100K",
-                    fitur: [
-                        "Desain template standar",
-                        "Tanpa foto couple",
-                        "Animasi dasar",
-                        "Countdown timer",
-                        "Info lokasi acara",
-                        "Revisi 1x",
-                        "Support via WA"
-                    ]
-                },
-                pro: {
-                    nama: "PRO",
-                    subtitle: "Profesional",
-                    harga: "Rp 125K",
-                    hargaCoret: "Rp 175K",
-                    fitur: [
-                        "Desain semi-custom",
-                        "Galeri foto couple",
-                        "Animasi menarik",
-                        "Countdown timer",
-                        "Maps lokasi interaktif",
-                        "Musik background",
-                        "Revisi 2x",
-                        "Support prioritas"
-                    ]
-                },
-                deluxe: {
-                    nama: "DELUXE",
-                    subtitle: "Mewah",
-                    harga: "Rp 200K",
-                    hargaCoret: "Rp 275K",
-                    fitur: [
-                        "Desain full custom",
-                        "Galeri foto unlimited",
-                        "Animasi premium",
-                        "Tema adat tersedia",
-                        "Love story section",
-                        "RSVP confirmation",
-                        "Musik custom",
-                        "Revisi unlimited",
-                        "Support 24/7"
-                    ]
-                }
-            },
-
-            // GAMBAR KATALOG - GANTI PATH GAMBAR DISINI!
-            GAMBAR_KATALOG: {
-                wedding: [
-                    { nama: "MOTION - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 01 - Elegant Rose Gold Theme" },
-                    { nama: "MOTION - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 02 - Classic Burgundy Theme" },
-                    { nama: "MOTION - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 03 - Modern Blue Theme" },
-                    { nama: "MOTION - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 04 - Vintage Floral Theme" },
-                    { nama: "MOTION - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 05 - Minimalist White Theme" },
-                    { nama: "MOTION - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 06 - Royal Purple Theme" },
-                    { nama: "MOTION - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 07 - Garden Green Theme" },
-                    { nama: "MOTION - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 08 - Rustic Brown Theme" },
-                    { nama: "MOTION - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 09 - Luxury Gold Theme" },
-                    { nama: "MOTION - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 10 - Traditional Javanese Theme" }
-                ],
-                birthday: [
-                    { nama: "BIRTHDAY - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 01 - Colorful Balloon Theme" },
-                    { nama: "BIRTHDAY - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 02 - Princess Pink Theme" },
-                    { nama: "BIRTHDAY - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 03 - Superhero Blue Theme" },
-                    { nama: "BIRTHDAY - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 04 - Unicorn Rainbow Theme" },
-                    { nama: "BIRTHDAY - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 05 - Cartoon Animal Theme" },
-                    { nama: "BIRTHDAY - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 06 - Space Galaxy Theme" },
-                    { nama: "BIRTHDAY - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 07 - Elegant Adult Theme" },
-                    { nama: "BIRTHDAY - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 08 - Tropical Summer Theme" },
-                    { nama: "BIRTHDAY - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 09 - Vintage Retro Theme" },
-                    { nama: "BIRTHDAY - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 10 - Gaming Theme" }
-                ],
-                circumcision: [
-                    { nama: "KHITAN - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 01 - Islamic Green Theme" },
-                    { nama: "KHITAN - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 02 - Golden Mosque Theme" },
-                    { nama: "KHITAN - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 03 - Blue Calligraphy Theme" },
-                    { nama: "KHITAN - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 04 - Traditional Pattern Theme" },
-                    { nama: "KHITAN - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 05 - Modern Islamic Theme" },
-                    { nama: "KHITAN - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 06 - Elegant Brown Theme" },
-                    { nama: "KHITAN - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 07 - Purple Ornament Theme" },
-                    { nama: "KHITAN - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 08 - Turquoise Geometric Theme" },
-                    { nama: "KHITAN - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 09 - Maroon Classic Theme" },
-                    { nama: "KHITAN - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 10 - Navy Arabic Theme" }
-                ]
-            },
-
-            // TEKS LAYANAN
-            LAYANAN: {
-                wedding: {
-                    judul: "Undangan Pernikahan",
-                    deskripsi: "Undangan pernikahan digital yang elegan dan romantis dengan berbagai tema adat dan modern. Dilengkapi dengan countdown timer, galeri foto, dan fitur RSVP yang memudahkan tamu mengkonfirmasi kehadiran."
-                },
-                birthday: {
-                    judul: "Undangan Ulang Tahun", 
-                    deskripsi: "Undangan ulang tahun yang meriah dan menyenangkan dengan animasi yang menarik. Cocok untuk segala usia dengan desain yang dapat disesuaikan dengan tema favorit Anda."
-                },
-                circumcision: {
-                    judul: "Undangan Khitanan",
-                    deskripsi: "Undangan khitanan dengan nuansa Islami yang sakral dan bermakna. Dilengkapi dengan ayat-ayat suci dan desain yang mencerminkan nilai-nilai religius."
-                }
-            }
-        };
-		
-
-        // FUNGSI UNTUK MENGGANTI SEMUA KONTEN OTOMATIS
-        function initializeContent() {
-            // Ganti title halaman
-            document.title = `${CONFIG.BISNIS.nama} - ${CONFIG.BISNIS.tagline}`;
-            
-            // Ganti semua teks berdasarkan class
-            const replacements = {
-                'bisnis-nama': CONFIG.BISNIS.nama,
-                'hero-title': CONFIG.BISNIS.heroTitle,
-                'hero-subtitle': CONFIG.BISNIS.heroSubtitle,
-                'hero-description': CONFIG.BISNIS.heroDescription,
-                'footer-description': CONFIG.BISNIS.deskripsiFooter,
-                'kontak-whatsapp': CONFIG.KONTAK.whatsapp,
-                'kontak-email': CONFIG.KONTAK.email,
-                'kontak-alamat': CONFIG.KONTAK.alamat,
-                'kontak-jam': CONFIG.KONTAK.jamOperasional
-            };
-
-            // Apply replacements
-            Object.keys(replacements).forEach(className => {
-                const elements = document.querySelectorAll(`.${className}`);
-                elements.forEach(el => {
-                    el.innerHTML = replacements[className];
-                });
-            });
-
-            // Generate WhatsApp links
-            const waLinks = document.querySelectorAll('.wa-link');
-            waLinks.forEach(link => {
-                const currentHref = link.getAttribute('href');
-                const newHref = currentHref.replace(/085710758662/g, CONFIG.KONTAK.whatsapp);
-                link.setAttribute('href', newHref);
-            });
-
-            // Generate pricing cards
-            generatePricingCards();
-            
-            // Generate catalog items
-            generateCatalogItems();
-            
-            // Generate service cards
-            generateServiceCards();
-        }
-
-        function generatePricingCards() {
-            const pricingGrid = document.querySelector('.pricing-grid');
-            if (!pricingGrid) return;
-
-            pricingGrid.innerHTML = '';
-            
-            Object.keys(CONFIG.HARGA).forEach((key, index) => {
-                const paket = CONFIG.HARGA[key];
-                const isPopular = key === 'pro' ? 'popular' : '';
-                
-                const fiturList = paket.fitur.map(fitur => `<li>${fitur}</li>`).join('');
-                
-                const cardHTML = `
-                    <div class="pricing-card ${isPopular} animate-on-scroll">
-                        <div class="pricing-header">
-                            <h3>${paket.nama}</h3>
-                            <div class="subtitle">${paket.subtitle}</div>
-                            <div class="price">${paket.harga}</div>
-                            <div class="price-old">${paket.hargaCoret}</div>
-                        </div>
-                        <ul class="pricing-features">
-                            ${fiturList}
-                        </ul>
-                        <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20paket%20${paket.nama}" class="btn-primary wa-link">
-                            <i class="fab fa-whatsapp"></i> Pesan ${paket.nama}
-                        </a>
-                    </div>
-                `;
-                
-                pricingGrid.innerHTML += cardHTML;
-            });
-        }
-
-        function generateCatalogItems() {
-            const catalogGrid = document.querySelector('.catalog-grid');
-            if (!catalogGrid) return;
-
-            catalogGrid.innerHTML = '';
-            
-            // Generate wedding items
-            CONFIG.GAMBAR_KATALOG.wedding.forEach(item => {
-                const itemHTML = `
-                    <div class="catalog-item animate-on-scroll" data-category="wedding">
-                        <div class="catalog-image">
-                            <img src="${item.gambar}" alt="${item.alt}">
-                        </div>
-                        <div class="catalog-content">
-                            <div class="catalog-title">${item.nama}</div>
-                            <div class="catalog-category">Pernikahan</div>
-                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
-                        </div>
-                    </div>
-                `;
-                catalogGrid.innerHTML += itemHTML;
-            });
-
-            // Generate birthday items
-            CONFIG.GAMBAR_KATALOG.birthday.forEach(item => {
-                const itemHTML = `
-                    <div class="catalog-item animate-on-scroll" data-category="birthday">
-                        <div class="catalog-image">
-                            <img src="${item.gambar}" alt="${item.alt}">
-                        </div>
-                        <div class="catalog-content">
-                            <div class="catalog-title">${item.nama}</div>
-                            <div class="catalog-category">Ulang Tahun</div>
-                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
-                        </div>
-                    </div>
-                `;
-                catalogGrid.innerHTML += itemHTML;
-            });
-
-            // Generate circumcision items
-            CONFIG.GAMBAR_KATALOG.circumcision.forEach(item => {
-                const itemHTML = `
-                    <div class="catalog-item animate-on-scroll" data-category="circumcision">
-                        <div class="catalog-image">
-                            <img src="${item.gambar}" alt="${item.alt}">
-                        </div>
-                        <div class="catalog-content">
-                            <div class="catalog-title">${item.nama}</div>
-                            <div class="catalog-category">Khitanan</div>
-                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
-                        </div>
-                    </div>
-                `;
-                catalogGrid.innerHTML += itemHTML;
-            });
-        }
-
-        function generateServiceCards() {
-            const servicesGrid = document.querySelector('.services-grid');
-            if (!servicesGrid) return;
-
-            const services = [
-                { key: 'wedding', icon: 'fas fa-heart' },
-                { key: 'birthday', icon: 'fas fa-birthday-cake' },
-                { key: 'circumcision', icon: 'fas fa-star-and-crescent' }
-            ];
-
-            servicesGrid.innerHTML = '';
-
-            services.forEach(service => {
-                const layanan = CONFIG.LAYANAN[service.key];
-                const serviceType = service.key === 'wedding' ? 'pernikahan' : 
-                                 service.key === 'birthday' ? 'ulang%20tahun' : 'khitanan';
-                
-                const cardHTML = `
-                    <div class="service-card animate-on-scroll">
-                        <div class="service-image">
-                            <i class="${service.icon}"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>${layanan.judul}</h3>
-                            <p>${layanan.deskripsi}</p>
-                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20undangan%20${serviceType}%20digital" class="btn-primary wa-link">
-                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                            </a>
-                        </div>
-                    </div>
-                `;
-                servicesGrid.innerHTML += cardHTML;
-            });
-        }
-    </script>
-    
     <style>
         * {
             margin: 0;
@@ -973,7 +670,7 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo bisnis-nama">Mybestid</a>
+            <a href="#" class="logo">Mybestid</a>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#katalog">Katalog</a></li>
@@ -981,7 +678,7 @@
                 <li><a href="#harga">Harga</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
-            <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="cta-button wa-link">
+            <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="cta-button">
                 <i class="fab fa-whatsapp"></i> Pesan Sekarang
             </a>
         </nav>
@@ -992,10 +689,10 @@
         <div class="container">
             <div class="hero-content animate-on-scroll">
                 <div class="hero-subtitle">✨ Solusi Undangan Digital Terbaik</div>
-                <h1 class="hero-title">Undangan Digital<br>Untuk Momen Spesial</h1>
-                <p class="hero-description">Buat undangan digital yang menawan untuk pernikahan, ulang tahun, dan khitanan dengan desain modern, harga terjangkau, dan fitur lengkap. Hemat waktu, hemat biaya, ramah lingkungan!</p>
+                <h1>Undangan Digital<br>Untuk Momen Spesial</h1>
+                <p>Buat undangan digital yang menawan untuk pernikahan, ulang tahun, dan khitanan dengan desain modern, harga terjangkau, dan fitur lengkap. Hemat waktu, hemat biaya, ramah lingkungan!</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="btn-primary wa-link">
+                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="btn-primary">
                         <i class="fab fa-whatsapp"></i> Pesan Sekarang
                     </a>
                     <a href="#katalog" class="btn-secondary">Lihat Katalog</a>
@@ -1007,7 +704,7 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Mengapa Memilih <span class="bisnis-nama">Mybestid</span>?</h2>
+            <h2 class="section-title animate-on-scroll">Mengapa Memilih Mybestid?</h2>
             <p class="section-subtitle animate-on-scroll">Kami menghadirkan solusi undangan digital terdepan dengan kualitas premium dan harga yang terjangkau</p>
             
             <div class="features-grid">
@@ -1084,7 +781,338 @@
             </div>
 
             <div class="catalog-grid">
-                <!-- Catalog items will be generated by JavaScript -->
+                <!-- Wedding Invitations -->
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 01 - Elegant Rose Gold Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 01</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2001" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 02 - Classic Burgundy Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 02</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2002" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 03 - Modern Blue Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 03</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2003" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 04 - Vintage Floral Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 04</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2004" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 05 - Minimalist White Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 05</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2005" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 06 - Royal Purple Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 06</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2006" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 07 - Garden Green Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 07</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2007" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 08 - Rustic Brown Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 08</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2008" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 09 - Luxury Gold Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 09</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2009" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="wedding">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Wedding Motion 10 - Traditional Javanese Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">MOTION - 10</div>
+                        <div class="catalog-category">Pernikahan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Wedding%20Motion%2010" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <!-- Birthday Invitations -->
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 01 - Colorful Balloon Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 01</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2001" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 02 - Princess Pink Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 02</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2002" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 03 - Superhero Blue Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 03</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2003" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 04 - Unicorn Rainbow Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 04</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2004" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 05 - Cartoon Animal Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 05</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2005" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 06 - Space Galaxy Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 06</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2006" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 07 - Elegant Adult Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 07</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2007" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 08 - Tropical Summer Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 08</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2008" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 09 - Vintage Retro Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 09</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2009" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="birthday">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Birthday Motion 10 - Gaming Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">BIRTHDAY - 10</div>
+                        <div class="catalog-category">Ulang Tahun</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Birthday%20Motion%2010" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <!-- Circumcision Invitations -->
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 01 - Islamic Green Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 01</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2001" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 02 - Golden Mosque Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 02</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2002" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 03 - Blue Calligraphy Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 03</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2003" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 04 - Traditional Pattern Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 04</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2004" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 05 - Modern Islamic Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 05</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2005" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 06 - Elegant Brown Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 06</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2006" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 07 - Purple Ornament Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 07</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2007" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 08 - Turquoise Geometric Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 08</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2008" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 09 - Maroon Classic Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 09</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2009" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                    <div class="catalog-image">
+                        <img src="/placeholder.svg?height=300&width=280" alt="Circumcision Motion 10 - Navy Arabic Theme">
+                    </div>
+                    <div class="catalog-content">
+                        <div class="catalog-title">KHITAN - 10</div>
+                        <div class="catalog-category">Khitanan</div>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20tema%20Khitan%20Motion%2010" class="catalog-btn">Lihat Tema</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1096,7 +1124,44 @@
             <p class="section-subtitle animate-on-scroll">Berbagai pilihan undangan digital untuk setiap momen berharga dalam hidup Anda</p>
             
             <div class="services-grid">
-                <!-- Service cards will be generated by JavaScript -->
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Undangan Pernikahan</h3>
+                        <p>Undangan pernikahan digital yang elegan dan romantis dengan berbagai tema adat dan modern. Dilengkapi dengan countdown timer, galeri foto, dan fitur RSVP yang memudahkan tamu mengkonfirmasi kehadiran.</p>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20pernikahan%20digital" class="btn-primary">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Undangan Ulang Tahun</h3>
+                        <p>Undangan ulang tahun yang meriah dan menyenangkan dengan animasi yang menarik. Cocok untuk segala usia dengan desain yang dapat disesuaikan dengan tema favorit Anda.</p>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20ulang%20tahun%20digital" class="btn-primary">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll">
+                    <div class="service-image">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Undangan Khitanan</h3>
+                        <p>Undangan khitanan dengan nuansa Islami yang sakral dan bermakna. Dilengkapi dengan ayat-ayat suci dan desain yang mencerminkan nilai-nilai religius.</p>
+                        <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20khitanan%20digital" class="btn-primary">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1108,7 +1173,71 @@
             <p class="section-subtitle animate-on-scroll">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
             
             <div class="pricing-grid">
-                <!-- Pricing cards will be generated by JavaScript -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>BASIC</h3>
+                        <div class="subtitle">Standar</div>
+                        <div class="price">Rp 75K</div>
+                        <div class="price-old">Rp 100K</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Desain template standar</li>
+                        <li>Tanpa foto couple</li>
+                        <li>Animasi dasar</li>
+                        <li>Countdown timer</li>
+                        <li>Info lokasi acara</li>
+                        <li>Revisi 1x</li>
+                        <li>Support via WA</li>
+                    </ul>
+                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20paket%20BASIC" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Pesan BASIC
+                    </a>
+                </div>
+                
+                <div class="pricing-card popular animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>PRO</h3>
+                        <div class="subtitle">Profesional</div>
+                        <div class="price">Rp 125K</div>
+                        <div class="price-old">Rp 175K</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Desain semi-custom</li>
+                        <li>Galeri foto couple</li>
+                        <li>Animasi menarik</li>
+                        <li>Countdown timer</li>
+                        <li>Maps lokasi interaktif</li>
+                        <li>Musik background</li>
+                        <li>Revisi 2x</li>
+                        <li>Support prioritas</li>
+                    </ul>
+                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20paket%20PRO" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Pesan PRO
+                    </a>
+                </div>
+                
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>DELUXE</h3>
+                        <div class="subtitle">Mewah</div>
+                        <div class="price">Rp 200K</div>
+                        <div class="price-old">Rp 275K</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Desain full custom</li>
+                        <li>Galeri foto unlimited</li>
+                        <li>Animasi premium</li>
+                        <li>Tema adat tersedia</li>
+                        <li>Love story section</li>
+                        <li>RSVP confirmation</li>
+                        <li>Musik custom</li>
+                        <li>Revisi unlimited</li>
+                        <li>Support 24/7</li>
+                    </ul>
+                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20paket%20DELUXE" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Pesan DELUXE
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1183,8 +1312,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 class="bisnis-nama">Mybestid</h3>
-                    <p class="footer-description">Solusi terbaik untuk undangan digital yang elegan, modern, dan terjangkau. Wujudkan momen spesial Anda dengan undangan yang berkesan.</p>
+                    <h3>Mybestid</h3>
+                    <p>Solusi terbaik untuk undangan digital yang elegan, modern, dan terjangkau. Wujudkan momen spesial Anda dengan undangan yang berkesan.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1203,30 +1332,25 @@
                 
                 <div class="footer-section">
                     <h3>Kontak</h3>
-                    <p><i class="fas fa-phone"></i> +62 <span class="kontak-whatsapp">857-1075-8662</span></p>
-                    <p><i class="fas fa-envelope"></i> <span class="kontak-email">info@mybestid.com</span></p>
-                    <p><i class="fas fa-map-marker-alt"></i> <span class="kontak-alamat">Jakarta, Indonesia</span></p>
-                    <p><i class="fas fa-clock"></i> <span class="kontak-jam">Senin - Minggu: 08:00 - 22:00</span></p>
+                    <p><i class="fas fa-phone"></i> +62 857-1075-8662</p>
+                    <p><i class="fas fa-envelope"></i> info@mybestid.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                    <p><i class="fas fa-clock"></i> Senin - Minggu: 08:00 - 22:00</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 <span class="bisnis-nama">Mybestid</span>. All Rights Reserved. Made with ❤️ for your special moments.</p>
+                <p>&copy; 2025 Mybestid. All Rights Reserved. Made with ❤️ for your special moments.</p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="whatsapp-float wa-link">
+    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Initialize content when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeContent();
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1242,18 +1366,18 @@
         });
 
         // Catalog filter functionality
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('filter-btn')) {
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
                 // Remove active class from all buttons
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 
                 // Add active class to clicked button
-                e.target.classList.add('active');
+                this.classList.add('active');
                 
                 // Get filter value
-                const filterValue = e.target.getAttribute('data-filter');
+                const filterValue = this.getAttribute('data-filter');
                 
                 // Show/hide catalog items
                 document.querySelectorAll('.catalog-item').forEach(item => {
@@ -1267,7 +1391,7 @@
                         }
                     }
                 });
-            }
+            });
         });
 
         // FAQ functionality
@@ -1319,6 +1443,12 @@
                 header.style.backdropFilter = 'none';
             }
         });
+
+        // Mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
 
         // Add floating animation to hero elements
         function addFloatingAnimation() {
