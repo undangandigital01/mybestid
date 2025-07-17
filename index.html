@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mybestid - Undangan Digital Terbaik</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        // ===== KONFIGURASI WEBSITE - GANTI DISINI SAJA! =====
+        const CONFIG = {
+            // INFORMASI BISNIS
+            BISNIS: {
+                nama: "Mybestid",
+                tagline: "Undangan Digital Terbaik",
+                heroTitle: "Undangan Digital<br>Untuk Momen Spesial",
+                heroSubtitle: "✨ Solusi Undangan Digital Terbaik",
+                heroDescription: "Buat undangan digital yang menawan untuk pernikahan, ulang tahun, dan khitanan dengan desain modern, harga terjangkau, dan fitur lengkap. Hemat waktu, hemat biaya, ramah lingkungan!",
+                deskripsiFooter: "Solusi terbaik untuk undangan digital yang elegan, modern, dan terjangkau. Wujudkan momen spesial Anda dengan undangan yang berkesan."
+            },
+
+            // KONTAK INFORMASI
+            KONTAK: {
+                whatsapp: "085710758662",
+                email: "info@mybestid.com",
+                alamat: "Jakarta, Indonesia",
+                jamOperasional: "Senin - Minggu: 08:00 - 22:00"
+            },
+
+            // HARGA PAKET
+            HARGA: {
+                basic: {
+                    nama: "BASIC",
+                    subtitle: "Standar",
+                    harga: "Rp 75K",
+                    hargaCoret: "Rp 100K",
+                    fitur: [
+                        "Desain template standar",
+                        "Tanpa foto couple",
+                        "Animasi dasar",
+                        "Countdown timer",
+                        "Info lokasi acara",
+                        "Revisi 1x",
+                        "Support via WA"
+                    ]
+                },
+                pro: {
+                    nama: "PRO",
+                    subtitle: "Profesional",
+                    harga: "Rp 125K",
+                    hargaCoret: "Rp 175K",
+                    fitur: [
+                        "Desain semi-custom",
+                        "Galeri foto couple",
+                        "Animasi menarik",
+                        "Countdown timer",
+                        "Maps lokasi interaktif",
+                        "Musik background",
+                        "Revisi 2x",
+                        "Support prioritas"
+                    ]
+                },
+                deluxe: {
+                    nama: "DELUXE",
+                    subtitle: "Mewah",
+                    harga: "Rp 200K",
+                    hargaCoret: "Rp 275K",
+                    fitur: [
+                        "Desain full custom",
+                        "Galeri foto unlimited",
+                        "Animasi premium",
+                        "Tema adat tersedia",
+                        "Love story section",
+                        "RSVP confirmation",
+                        "Musik custom",
+                        "Revisi unlimited",
+                        "Support 24/7"
+                    ]
+                }
+            },
+
+            // GAMBAR KATALOG - GANTI PATH GAMBAR DISINI!
+            GAMBAR_KATALOG: {
+                wedding: [
+                    { nama: "MOTION - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 01 - Elegant Rose Gold Theme" },
+                    { nama: "MOTION - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 02 - Classic Burgundy Theme" },
+                    { nama: "MOTION - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 03 - Modern Blue Theme" },
+                    { nama: "MOTION - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 04 - Vintage Floral Theme" },
+                    { nama: "MOTION - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 05 - Minimalist White Theme" },
+                    { nama: "MOTION - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 06 - Royal Purple Theme" },
+                    { nama: "MOTION - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 07 - Garden Green Theme" },
+                    { nama: "MOTION - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 08 - Rustic Brown Theme" },
+                    { nama: "MOTION - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 09 - Luxury Gold Theme" },
+                    { nama: "MOTION - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Wedding Motion 10 - Traditional Javanese Theme" }
+                ],
+                birthday: [
+                    { nama: "BIRTHDAY - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 01 - Colorful Balloon Theme" },
+                    { nama: "BIRTHDAY - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 02 - Princess Pink Theme" },
+                    { nama: "BIRTHDAY - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 03 - Superhero Blue Theme" },
+                    { nama: "BIRTHDAY - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 04 - Unicorn Rainbow Theme" },
+                    { nama: "BIRTHDAY - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 05 - Cartoon Animal Theme" },
+                    { nama: "BIRTHDAY - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 06 - Space Galaxy Theme" },
+                    { nama: "BIRTHDAY - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 07 - Elegant Adult Theme" },
+                    { nama: "BIRTHDAY - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 08 - Tropical Summer Theme" },
+                    { nama: "BIRTHDAY - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 09 - Vintage Retro Theme" },
+                    { nama: "BIRTHDAY - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Birthday Motion 10 - Gaming Theme" }
+                ],
+                circumcision: [
+                    { nama: "KHITAN - 01", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 01 - Islamic Green Theme" },
+                    { nama: "KHITAN - 02", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 02 - Golden Mosque Theme" },
+                    { nama: "KHITAN - 03", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 03 - Blue Calligraphy Theme" },
+                    { nama: "KHITAN - 04", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 04 - Traditional Pattern Theme" },
+                    { nama: "KHITAN - 05", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 05 - Modern Islamic Theme" },
+                    { nama: "KHITAN - 06", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 06 - Elegant Brown Theme" },
+                    { nama: "KHITAN - 07", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 07 - Purple Ornament Theme" },
+                    { nama: "KHITAN - 08", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 08 - Turquoise Geometric Theme" },
+                    { nama: "KHITAN - 09", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 09 - Maroon Classic Theme" },
+                    { nama: "KHITAN - 10", gambar: "/placeholder.svg?height=300&width=280", alt: "Circumcision Motion 10 - Navy Arabic Theme" }
+                ]
+            },
+
+            // TEKS LAYANAN
+            LAYANAN: {
+                wedding: {
+                    judul: "Undangan Pernikahan",
+                    deskripsi: "Undangan pernikahan digital yang elegan dan romantis dengan berbagai tema adat dan modern. Dilengkapi dengan countdown timer, galeri foto, dan fitur RSVP yang memudahkan tamu mengkonfirmasi kehadiran."
+                },
+                birthday: {
+                    judul: "Undangan Ulang Tahun", 
+                    deskripsi: "Undangan ulang tahun yang meriah dan menyenangkan dengan animasi yang menarik. Cocok untuk segala usia dengan desain yang dapat disesuaikan dengan tema favorit Anda."
+                },
+                circumcision: {
+                    judul: "Undangan Khitanan",
+                    deskripsi: "Undangan khitanan dengan nuansa Islami yang sakral dan bermakna. Dilengkapi dengan ayat-ayat suci dan desain yang mencerminkan nilai-nilai religius."
+                }
+            }
+        };
+		
+
+        // FUNGSI UNTUK MENGGANTI SEMUA KONTEN OTOMATIS
+        function initializeContent() {
+            // Ganti title halaman
+            document.title = `${CONFIG.BISNIS.nama} - ${CONFIG.BISNIS.tagline}`;
+            
+            // Ganti semua teks berdasarkan class
+            const replacements = {
+                'bisnis-nama': CONFIG.BISNIS.nama,
+                'hero-title': CONFIG.BISNIS.heroTitle,
+                'hero-subtitle': CONFIG.BISNIS.heroSubtitle,
+                'hero-description': CONFIG.BISNIS.heroDescription,
+                'footer-description': CONFIG.BISNIS.deskripsiFooter,
+                'kontak-whatsapp': CONFIG.KONTAK.whatsapp,
+                'kontak-email': CONFIG.KONTAK.email,
+                'kontak-alamat': CONFIG.KONTAK.alamat,
+                'kontak-jam': CONFIG.KONTAK.jamOperasional
+            };
+
+            // Apply replacements
+            Object.keys(replacements).forEach(className => {
+                const elements = document.querySelectorAll(`.${className}`);
+                elements.forEach(el => {
+                    el.innerHTML = replacements[className];
+                });
+            });
+
+            // Generate WhatsApp links
+            const waLinks = document.querySelectorAll('.wa-link');
+            waLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/085710758662/g, CONFIG.KONTAK.whatsapp);
+                link.setAttribute('href', newHref);
+            });
+
+            // Generate pricing cards
+            generatePricingCards();
+            
+            // Generate catalog items
+            generateCatalogItems();
+            
+            // Generate service cards
+            generateServiceCards();
+        }
+
+        function generatePricingCards() {
+            const pricingGrid = document.querySelector('.pricing-grid');
+            if (!pricingGrid) return;
+
+            pricingGrid.innerHTML = '';
+            
+            Object.keys(CONFIG.HARGA).forEach((key, index) => {
+                const paket = CONFIG.HARGA[key];
+                const isPopular = key === 'pro' ? 'popular' : '';
+                
+                const fiturList = paket.fitur.map(fitur => `<li>${fitur}</li>`).join('');
+                
+                const cardHTML = `
+                    <div class="pricing-card ${isPopular} animate-on-scroll">
+                        <div class="pricing-header">
+                            <h3>${paket.nama}</h3>
+                            <div class="subtitle">${paket.subtitle}</div>
+                            <div class="price">${paket.harga}</div>
+                            <div class="price-old">${paket.hargaCoret}</div>
+                        </div>
+                        <ul class="pricing-features">
+                            ${fiturList}
+                        </ul>
+                        <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20paket%20${paket.nama}" class="btn-primary wa-link">
+                            <i class="fab fa-whatsapp"></i> Pesan ${paket.nama}
+                        </a>
+                    </div>
+                `;
+                
+                pricingGrid.innerHTML += cardHTML;
+            });
+        }
+
+        function generateCatalogItems() {
+            const catalogGrid = document.querySelector('.catalog-grid');
+            if (!catalogGrid) return;
+
+            catalogGrid.innerHTML = '';
+            
+            // Generate wedding items
+            CONFIG.GAMBAR_KATALOG.wedding.forEach(item => {
+                const itemHTML = `
+                    <div class="catalog-item animate-on-scroll" data-category="wedding">
+                        <div class="catalog-image">
+                            <img src="${item.gambar}" alt="${item.alt}">
+                        </div>
+                        <div class="catalog-content">
+                            <div class="catalog-title">${item.nama}</div>
+                            <div class="catalog-category">Pernikahan</div>
+                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
+                        </div>
+                    </div>
+                `;
+                catalogGrid.innerHTML += itemHTML;
+            });
+
+            // Generate birthday items
+            CONFIG.GAMBAR_KATALOG.birthday.forEach(item => {
+                const itemHTML = `
+                    <div class="catalog-item animate-on-scroll" data-category="birthday">
+                        <div class="catalog-image">
+                            <img src="${item.gambar}" alt="${item.alt}">
+                        </div>
+                        <div class="catalog-content">
+                            <div class="catalog-title">${item.nama}</div>
+                            <div class="catalog-category">Ulang Tahun</div>
+                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
+                        </div>
+                    </div>
+                `;
+                catalogGrid.innerHTML += itemHTML;
+            });
+
+            // Generate circumcision items
+            CONFIG.GAMBAR_KATALOG.circumcision.forEach(item => {
+                const itemHTML = `
+                    <div class="catalog-item animate-on-scroll" data-category="circumcision">
+                        <div class="catalog-image">
+                            <img src="${item.gambar}" alt="${item.alt}">
+                        </div>
+                        <div class="catalog-content">
+                            <div class="catalog-title">${item.nama}</div>
+                            <div class="catalog-category">Khitanan</div>
+                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20tema%20${encodeURIComponent(item.nama)}" class="catalog-btn wa-link">Lihat Tema</a>
+                        </div>
+                    </div>
+                `;
+                catalogGrid.innerHTML += itemHTML;
+            });
+        }
+
+        function generateServiceCards() {
+            const servicesGrid = document.querySelector('.services-grid');
+            if (!servicesGrid) return;
+
+            const services = [
+                { key: 'wedding', icon: 'fas fa-heart' },
+                { key: 'birthday', icon: 'fas fa-birthday-cake' },
+                { key: 'circumcision', icon: 'fas fa-star-and-crescent' }
+            ];
+
+            servicesGrid.innerHTML = '';
+
+            services.forEach(service => {
+                const layanan = CONFIG.LAYANAN[service.key];
+                const serviceType = service.key === 'wedding' ? 'pernikahan' : 
+                                 service.key === 'birthday' ? 'ulang%20tahun' : 'khitanan';
+                
+                const cardHTML = `
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-image">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>${layanan.judul}</h3>
+                            <p>${layanan.deskripsi}</p>
+                            <a href="https://wa.me/${CONFIG.KONTAK.whatsapp}?text=Halo%20${CONFIG.BISNIS.nama},%20saya%20tertarik%20dengan%20undangan%20${serviceType}%20digital" class="btn-primary wa-link">
+                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+                `;
+                servicesGrid.innerHTML += cardHTML;
+            });
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #87CEEB, #E0F6FF, #ffffff);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4682B4;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #4682B4;
+        }
+        .cta-button {
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #87CEEB, #E0F6FF, #ffffff);
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="0,100 1000,0 1000,100"/></svg>');
+            background-size: cover;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #2F4F4F;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: #4682B4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(70, 130, 180, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #4682B4;
+            border: 2px solid #4682B4;
+            padding: 13px 35px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .btn-secondary:hover {
+            background: #4682B4;
+            color: white;
+            transform: translateY(-3px);
+        }
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8fbff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2F4F4F;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .feature-icon {
+            font-size: 3em;
+            color: #4682B4;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2F4F4F;
+        }
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Catalog Section */
+        .catalog {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fbff, #ffffff);
+        }
+        .catalog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #f0f0f0;
+            color: #666;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .filter-btn.active {
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .catalog-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .catalog-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .catalog-image {
+            height: 300px;
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .catalog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .catalog-content {
+            padding: 25px;
+            text-align: center;
+        }
+        .catalog-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 10px;
+        }
+        .catalog-category {
+            color: #4682B4;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .catalog-btn {
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .catalog-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.4);
+        }
+        .catalog-item.hidden {
+            display: none;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #E0F6FF, #ffffff);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, #4682B4, #87CEEB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .service-content {
+            padding: 30px;
+        }
+        .service-content h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2F4F4F;
+        }
+        .service-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: #f8fbff;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card.popular {
+            border: 3px solid #4682B4;
+            transform: scale(1.05);
+        }
+        .pricing-card.popular::before {
+            content: 'TERPOPULER';
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background: #4682B4;
+            color: white;
+            padding: 5px 50px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+        .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #2F4F4F;
+        }
+        .pricing-card .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4682B4;
+            margin-bottom: 10px;
+        }
+        .price-old {
+            font-size: 1.2em;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 20px;
+        }
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4682B4;
+            font-weight: bold;
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #E0F6FF, #ffffff);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2F4F4F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .faq-question:hover {
+            background: #f8fbff;
+        }
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f8fbff;
+        }
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 25px;
+        }
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2F4F4F, #4682B4);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #87CEEB;
+        }
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-section a:hover {
+            color: #87CEEB;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: #87CEEB;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+        }
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .features-grid,
+            .services-grid,
+            .pricing-grid,
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card.popular {
+                transform: none;
+            }
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .catalog-filters {
+                gap: 10px;
+            }
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo bisnis-nama">Mybestid</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#katalog">Katalog</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="cta-button wa-link">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animate-on-scroll">
+                <div class="hero-subtitle">✨ Solusi Undangan Digital Terbaik</div>
+                <h1 class="hero-title">Undangan Digital<br>Untuk Momen Spesial</h1>
+                <p class="hero-description">Buat undangan digital yang menawan untuk pernikahan, ulang tahun, dan khitanan dengan desain modern, harga terjangkau, dan fitur lengkap. Hemat waktu, hemat biaya, ramah lingkungan!</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="btn-primary wa-link">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                    <a href="#katalog" class="btn-secondary">Lihat Katalog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mengapa Memilih <span class="bisnis-nama">Mybestid</span>?</h2>
+            <p class="section-subtitle animate-on-scroll">Kami menghadirkan solusi undangan digital terdepan dengan kualitas premium dan harga yang terjangkau</p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Undangan dapat dibuka dengan sempurna di semua perangkat - smartphone, tablet, dan desktop dengan tampilan yang optimal.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Pengerjaan Cepat</h3>
+                    <p>Proses pembuatan hanya 1-3 hari kerja. Kami memahami pentingnya waktu dalam persiapan acara Anda.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Desain Eksklusif</h3>
+                    <p>Berbagai pilihan tema menarik dengan animasi yang memukau. Setiap undangan dirancang khusus untuk momen spesial Anda.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Mudah Dibagikan</h3>
+                    <p>Bagikan undangan melalui WhatsApp, Instagram, Facebook, atau media sosial lainnya dengan sekali klik.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Harga Terjangkau</h3>
+                    <p>Dapatkan undangan digital berkualitas premium dengan harga yang sangat kompetitif dan hemat biaya cetak.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support 24/7</h3>
+                    <p>Tim customer service kami siap membantu Anda kapan saja melalui WhatsApp untuk konsultasi dan revisi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="katalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Pilih Tema</h2>
+            <p class="section-subtitle animate-on-scroll">Eksplorasi desain premium yang sempurna untuk menciptakan momen istimewa kamu.</p>
+            
+            <div class="catalog-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> Semua
+                </button>
+                <button class="filter-btn" data-filter="wedding">
+                    <i class="fas fa-heart"></i> Pernikahan
+                </button>
+                <button class="filter-btn" data-filter="birthday">
+                    <i class="fas fa-birthday-cake"></i> Ulang Tahun
+                </button>
+                <button class="filter-btn" data-filter="circumcision">
+                    <i class="fas fa-star-and-crescent"></i> Khitanan
+                </button>
+            </div>
+
+            <div class="catalog-grid">
+                <!-- Catalog items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="services">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Layanan Kami</h2>
+            <p class="section-subtitle animate-on-scroll">Berbagai pilihan undangan digital untuk setiap momen berharga dalam hidup Anda</p>
+            
+            <div class="services-grid">
+                <!-- Service cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="harga" class="pricing">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Paket Harga</h2>
+            <p class="section-subtitle animate-on-scroll">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
+            
+            <div class="pricing-grid">
+                <!-- Pricing cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
+            <p class="section-subtitle animate-on-scroll">Pertanyaan yang sering ditanyakan tentang layanan undangan digital kami</p>
+            
+            <div class="faq-container">
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Berapa lama proses pembuatan undangan digital?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Proses pembuatan undangan digital membutuhkan waktu 1-3 hari kerja tergantung pada paket yang dipilih dan kompleksitas desain. Untuk paket Basic 1-2 hari, Pro 2-3 hari, dan Deluxe 2-3 hari.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Apakah bisa revisi jika tidak sesuai keinginan?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tentu saja! Setiap paket memiliki kuota revisi yang berbeda. Basic 1x revisi, Pro 2x revisi, dan Deluxe unlimited revisi. Kami akan memastikan hasil akhir sesuai dengan keinginan Anda.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Bagaimana cara pembayaran dan sistem kerjanya?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pembayaran dilakukan melalui transfer bank atau e-wallet. Sistem kerja: 1) Konsultasi via WA, 2) Pembayaran DP 50%, 3) Proses pembuatan, 4) Review & revisi, 5) Pelunasan, 6) Penyerahan link undangan.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Apakah undangan bisa diakses selamanya?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, undangan digital dapat diakses kapan saja dan dimana saja selama ada koneksi internet. Link undangan akan aktif permanent dan dapat dibagikan berkali-kali tanpa batas.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Apakah bisa menambahkan musik atau lagu favorit?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Untuk paket Pro dan Deluxe, Anda bisa menambahkan musik background. Paket Deluxe bahkan bisa custom dengan lagu favorit Anda. Musik akan otomatis play saat undangan dibuka.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        Bagaimana jika ada kendala teknis saat acara?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kami menyediakan support 24/7 melalui WhatsApp. Tim technical support kami siap membantu mengatasi kendala teknis kapan saja, bahkan saat hari H acara berlangsung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="bisnis-nama">Mybestid</h3>
+                    <p class="footer-description">Solusi terbaik untuk undangan digital yang elegan, modern, dan terjangkau. Wujudkan momen spesial Anda dengan undangan yang berkesan.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/085710758662"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <p><a href="#layanan">Undangan Pernikahan</a></p>
+                    <p><a href="#layanan">Undangan Ulang Tahun</a></p>
+                    <p><a href="#layanan">Undangan Khitanan</a></p>
+                    <p><a href="#harga">Paket Harga</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-phone"></i> +62 <span class="kontak-whatsapp">857-1075-8662</span></p>
+                    <p><i class="fas fa-envelope"></i> <span class="kontak-email">info@mybestid.com</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span class="kontak-alamat">Jakarta, Indonesia</span></p>
+                    <p><i class="fas fa-clock"></i> <span class="kontak-jam">Senin - Minggu: 08:00 - 22:00</span></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 <span class="bisnis-nama">Mybestid</span>. All Rights Reserved. Made with ❤️ for your special moments.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/085710758662?text=Halo%20Mybestid,%20saya%20tertarik%20dengan%20undangan%20digital%20Anda" class="whatsapp-float wa-link">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Initialize content when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeContent();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Catalog filter functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('filter-btn')) {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                e.target.classList.add('active');
+                
+                // Get filter value
+                const filterValue = e.target.getAttribute('data-filter');
+                
+                // Show/hide catalog items
+                document.querySelectorAll('.catalog-item').forEach(item => {
+                    if (filterValue === 'all') {
+                        item.classList.remove('hidden');
+                    } else {
+                        if (item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer) {
+                        otherAnswer.classList.remove('active');
+                        otherAnswer.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ item
+                answer.classList.toggle('active');
+                icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #87CEEB, #E0F6FF, #ffffff)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add floating animation to hero elements
+        function addFloatingAnimation() {
+            const floatingElements = document.querySelectorAll('.hero-content > *');
+            floatingElements.forEach((element, index) => {
+                element.style.animation = `fadeInUp 0.8s ease ${index * 0.2}s both`;
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            addFloatingAnimation();
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
